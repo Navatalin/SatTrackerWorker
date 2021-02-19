@@ -1,4 +1,4 @@
-# SatTrackerAPI
+# SatTrackerWorker
 Worker for calculating Satellite positions
 
 Uses Skyfield API for calculation of earth satellite positions
