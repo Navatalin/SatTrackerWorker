@@ -10,7 +10,6 @@ tracking = Tracking()
 
 def process_message(ch, method, properties, body):
     sat_names = json.loads(body)
-    print(sat_names)
     tracking.get_pos(sat_names, mq)
 
 def main():
