@@ -3,18 +3,15 @@ import pika
 from pika.exchange_type import ExchangeType
 import json
 from Tracking import Tracking
-from mqpublish import MqPublish
 
-mq = MqPublish()
+
 tracking = Tracking()
 
 def process_message(ch, method, properties, body):
     sat_names = json.loads(body)
-    tracking.get_pos(sat_names, mq)
+    tracking.get_pos(sat_names)
 
 def main():
-    mq.connect()
-
     print('connecting to mq')
     connection = pika.BlockingConnection(pika.ConnectionParameters('localhost',credentials=pika.PlainCredentials('Worker','workerPassword')))
     print('connected, getting channel')
